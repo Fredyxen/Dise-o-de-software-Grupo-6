@@ -1,0 +1,4 @@
+Primer Commit -  Benjamín González
+
+Repositorio creado, próxima semana se espera tener lista la idea preliminar de qué será la página y cómo se distribuirán las tareas para cumplir
+con todos los requisitos del sitio web junto con nuestros objetivos planteados en nuestra propuesta.
