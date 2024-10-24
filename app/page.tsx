@@ -1,12 +1,15 @@
-'use client'
+'use client';
 
 import Image from "next/image";
-import { useState } from 'react'
-import { Radio, RadioGroup } from '@headlessui/react'
+import { useState } from 'react';
+import { Radio, RadioGroup } from '@headlessui/react';
+import Head from 'next/head'; 
 
 function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
+
+      return classes.filter(Boolean).join(' ')
+  
+    }
 
 export default function Home() {
   const product = {
@@ -30,32 +33,59 @@ export default function Home() {
       { name: 'XL', inStock: true },
       { name: 'XXL', inStock: true },
     ],
-  }
-  const [selectedSize, setSelectedSize] = useState(product.sizes[2])
+  };
   
+  const [selectedSize, setSelectedSize] = useState(product.sizes[2]);
+
+  const handleButtonClick = () => {
+    alert('Botón presionado'); 
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Diseño de Software
-          </li>
-          <li>Clase 17 de Octubre 2024</li>
-        </ol>
-        <button
-            type="submit"
+    <>
+      <Head>
+        <title>Carrito de Compras</title> 
+      </Head>
+
+      <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+        <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+
+          <h1 className="text-3xl font-bold text-center">Carrito de compras</h1> 
+
+          {/* Login y contraseña */}
+          <div>
+            <label htmlFor="login" className="block text-sm font-medium text-gray-700">
+              Login:
+            </label>
+            <input
+              type="text"
+              name="login"
+              id="login"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div className="mt-4">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Contraseña:
+            </label>
+            <input
+              type="password" 
+              name="password"
+              id="password"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          {/* Botón funcional */}
+          <button
+            type="button" 
             className="block w-full rounded-md bg-sky-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            onClick={handleButtonClick} 
           >
             Ejemplo Botón
           </button>
+
           {/* Sizes */}
           <fieldset aria-label="Choose a size" className="mt-10">
             <div className="flex items-center justify-between">
@@ -108,80 +138,36 @@ export default function Home() {
             </RadioGroup>
           </fieldset>
 
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <div className="flex gap-4 items-center flex-col sm:flex-row">
+            <a
+              className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                className="dark:invert"
+                src="https://nextjs.org/icons/vercel.svg"
+                alt="Vercel logomark"
+                width={20}
+                height={20}
+              />
+              Deploy now
+            </a>
+            <a
+              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read our docs
+            </a>
+          </div>
+        </main>
+        <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+          {/* ... (código del footer) */}
+        </footer>
+      </div>
+    </>
   );
 }
