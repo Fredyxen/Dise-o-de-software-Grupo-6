@@ -1,0 +1,8 @@
+Requisitos primer entrega:
+- Diseño visual básico creado, básicmente la idea general de lo que será todo el frontend del sitio web.
+- Responsive Design (tablet, desktop).
+- Implementación Multilenguaje.
+- Pequeño Local Storage para el almacenamiento de datos.
+- Implementación de sistema de registro de usuarios con contraseñas.
+Posibles extras:
+- Integración API para la tienda.
