@@ -1,0 +1,263 @@
+/* Archivo: style.css */
+
+/* Colores */
+:root {
+  --primary-color: #6200ee;
+  --primary-light: #bb86fc;
+  --secondary-color: #03dac5;
+  --background-color: #f5f5f5;
+  --text-color: #333;
+  --card-background: #ffffff;
+  --border-radius: 8px;
+}
+
+/* Reset básico */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Contenedores */
+.container {
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+@media (min-width: 600px) {
+  .container {
+      max-width: 960px;
+  }
+}
+
+@media (min-width: 960px) {
+  .container {
+      max-width: 1200px;
+  }
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+/* Estilos del menú */
+.navbar .menu {
+  display: flex;
+  gap: 1rem; /* Espaciado entre enlaces */
+}
+
+.navbar .menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem; /* Tamaño del texto base */
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.navbar .menu a:hover {
+  color: #FFEB3B; /* Color de acento al pasar el mouse */
+}
+
+/* Ícono de hamburguesa oculto por defecto */
+.navbar .hamburger {
+  display: none;
+  font-size: 1.5rem; /* Tamaño del ícono */
+  cursor: pointer;
+  color: white;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  /* Ajustes para tablets y pantallas medianas */
+  .navbar {
+    padding: 0.75rem;
+  }
+
+  .navbar .menu a {
+    font-size: 0.9rem; /* Texto ligeramente más pequeño */
+  }
+
+  .navbar h1 {
+    font-size: 1.8rem; /* Ajustar tamaño del título */
+  }
+}
+
+@media (max-width: 600px) {
+  /* Ocultar menú en pantallas pequeñas y mostrar ícono hamburguesa */
+  .navbar .menu {
+    display: none; /* Ocultar menú en pantallas pequeñas */
+  }
+
+  .navbar .hamburger {
+    display: block; /* Mostrar ícono hamburguesa en pantallas pequeñas */
+  }
+
+  .navbar h1 {
+    font-size: 1.5rem; /* Tamaño del título aún más pequeño */
+  }
+}
+
+/* Mostrar menú en móviles cuando se active con la hamburguesa */
+.menu.show {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 100%; /* Aparece debajo de la navbar */
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+
+/* Tarjetas de producto */
+.product-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image {
+  width: 100%; /* Adapta al contenedor */
+  max-width: 150px; /* Limita el ancho máximo */
+  height: auto; /* Mantiene la proporción */
+  max-height: 150px; /* Limita la altura máxima */
+  object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin recortar */
+  margin-bottom: 1rem; /* Espacio inferior */
+  border-radius: var(--border-radius);
+}
+
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: var(--primary-color);
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.product-card .price {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+/* Grid adaptable */
+@media (max-width: 600px) {
+  .product-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+  .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .product-grid {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tipografía adaptable */
+h1 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  h1 {
+      font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 960px) {
+  h1 {
+      font-size: 2.5rem;
+  }
+}
+
+/* Botón */
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: var(--border-radius);
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: var(--primary-light);
+}
+
+.footer {
+  background-color: #263238; 
+  color: #CFD8DC; 
+  padding: 2rem;
+}
+
+.languageSelector {
+  background-color: var(--primary-color); 
+  color: white; 
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-left: 1rem; 
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+.languageSelector:hover {
+  background-color: #FFEB3B; 
+  color: var(--primary-color);
+}
+

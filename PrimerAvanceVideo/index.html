@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-key="title">Welcome to our Store!</title>
+  
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+  
+  
+
+  <!-- Barra de Navegación -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="hamburger" id="hamburger" >&#9776;</div>
+      <h1 data-key="title" class="text-3xl font-bold">Welcome to My Store</h1>
+      <div class="menu" id="menu">
+        <a href="#" data-key="nav.home" class="text-gray-200 hover:text-white px-5">Home</a>
+        <a href="#" data-key="nav.products" class="text-gray-200 hover:text-white px-5">Products</a>
+        <a href="#" data-key="nav.login" class="text-gray-200 hover:text-white px-5">Log in</a>
+        <a href="#" data-key="nav.signup" class="text-gray-200 hover:text-white px-5">Sign up</a>
+      </div>
+
+      
+    </div>
+    <!-- Selector de idioma -->
+  
+    <select id="languageSelector" class="languageSelector">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+    </select>
+  </div>
+  </nav>
+
+  <!-- Sección de Productos -->
+  <main class="container my-8 p-4">
+    <h2 data-key="products_available" class="text-3xl font-bold mb-6 text-center">Available Products</h2>
+    <div id="productos" class="product-grid">
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p data-key="footer_text">&copy; All rights reserved, 2024. Group 6 Software Design. Diego Marín, Agustín Escobar, Benjamín González.</p>
+    </div>    
+  </footer>
+
+  <!-- Script de idioma -->
+  <script src="app.js"></script>
+</body>
+
+</html>
